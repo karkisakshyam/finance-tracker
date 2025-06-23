@@ -11,7 +11,7 @@ include ('database/db-conn.php');
 <html>
 <head>
     <title>Dashboard - Finance Tracker</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
     <header>
@@ -23,7 +23,7 @@ include ('database/db-conn.php');
         <div class="summary-cards">
             <div class="card">
                 <h3>Current Balance</h3>
-                <p>$<?php 
+                <p><?php 
                     $stmt = $conn->prepare("SELECT SUM(amount) FROM transactions WHERE user_id = ?");
                     $stmt->bind_param("i", $_SESSION['user_id']);
                     $stmt->execute();
@@ -57,7 +57,7 @@ include ('database/db-conn.php');
                     <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['description']; ?></td>
                     <td class="<?php echo $row['amount'] >= 0 ? 'income' : 'expense'; ?>">
-                        $<?php echo number_format($row['amount'], 2); ?>
+                        <?php echo number_format($row['amount'], 2); ?>
                     </td>
                     <td><?php echo $row['category']; ?></td>
                 </tr>
@@ -67,9 +67,9 @@ include ('database/db-conn.php');
         </div>
     </div>
     
-    <div class="chart-container">
+    <!-- <div class="chart-container">
         <h2>Financial Overview</h2>
         <img src="generate_charts.php?type=monthly" alt="Monthly Financial Chart">
-    </div>
+    </div> -->
 </body>
 </html>

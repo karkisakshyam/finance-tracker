@@ -15,27 +15,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $description = $_POST['description'] ?? '';
     $date = $_POST['date'] ?? '';
 
-    // Validate amount
+
     if (!is_numeric($amount)) {
         header("Location: add_transaction.html?error=invalid_amount");
         exit();
     }
     $amount = $type == 'expense' ? -abs($amount) : abs($amount);
 
-    // Validate date
+    
     $d = DateTime::createFromFormat('Y-m-d', $date);
     if (!$d || $d->format('Y-m-d') !== $date) {
         header("Location: add_transaction.html?error=invalid_date");
         exit();
     }
 
-    // Sanitize and limit input
+
     $category = substr(trim($conn->real_escape_string($category)), 0, 50);
     $description = substr(trim($conn->real_escape_string($description)), 0, 255);
 
     $stmt = $conn->prepare("INSERT INTO transactions (user_id, amount, category, description, date) 
                            VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("idsss", $_SESSION['user_id'], $amount, $category, $description, $date);
+
 
     if ($stmt->execute()) {
         header("Location: dashboard.php?success=1");
