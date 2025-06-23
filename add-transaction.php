@@ -39,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
     if ($stmt->execute()) {
-        header("Location: dashboard.php?success=1");
+        header("Location: dashboard.php?&success=1");
     } else {
-        header("Location: add_transaction.html?error=1");
+        header("Location: add_transaction.html?error=" . urlencode($stmt->error));
     }
     ?>
