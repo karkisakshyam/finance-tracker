@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'database/db_config.php';
+include 'database/db-conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -8,13 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 }
 
-$sql =" SELECT ID, username, password FROM users WHERE email= .?";
+$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+$sql =" SELECT ID, username, password FROM users WHERE email= ?";
 $stmt= $conn->prepare($sql);
-$stmt ->bind_param('s', 'email');
+$stmt ->bind_param('s', $email);
 $stmt -> execute ();
 $result = $stmt -> get_result();
 
-if ( $result ->nums_row == 1) {
+if ( $result ->num_rows == 1) {
     $user = $result ->fetch_assoc();
      if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
@@ -24,6 +26,7 @@ if ( $result ->nums_row == 1) {
 
 
 }
+}
 
 
 
@@ -31,3 +34,25 @@ if ( $result ->nums_row == 1) {
 
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Finance Tracker</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Finance Tracker</h1>
+        <?php if (isset($error)): ?>
+            <div class="alert"><?php echo $error; ?></div>
+        <?php endif; ?>
+        <form method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+</body>
+</html>
