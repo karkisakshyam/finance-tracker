@@ -6,12 +6,11 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
 
+    $password = trim($_POST['password'] ?? '');
+
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
     
-
-    $password = trim($_POST['password'] ?? '');
-    $email = trim($_POST['email'] ?? '');
 
 
     if ($username && $password && $email) {
@@ -26,8 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
 
             $stmt->bind_param("sss", $username,$email , $hashed_password);
-
-            $stmt->bind_param("sss", $username, $hashed_password, $email);
 
             if ($stmt->execute()) {
                 header("Location: login.php");

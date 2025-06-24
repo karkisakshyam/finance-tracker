@@ -6,6 +6,7 @@ include 'database/db-conn.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
+
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
@@ -17,29 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'] ?? '';
 
     $sql = "SELECT * FROM users WHERE email = ?";
-main
+
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
 
-utsav
-    var_dump($result); // Debugging line to check the result
-
-    
-
-
- main
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
 
-utsav
-            //  $_SESSION['email'] = $user['email'];
 
- main
              session_start();
     $_SESSION['is_loggedin'] = true;
     header("Location: dashboard.php");

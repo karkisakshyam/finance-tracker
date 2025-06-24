@@ -66,6 +66,17 @@ include ('database/db-conn.php');
                 <?php endwhile; ?>
             </table>
             <a href="add_transaction.html" class="btn">Add Transaction</a>
-main
+ 
+        </div>
+
+
+    </div>
+
+
+
+
+
 </body>
 </html>
+
+
