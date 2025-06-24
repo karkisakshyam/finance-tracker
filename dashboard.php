@@ -33,6 +33,7 @@ include ('database/db-conn.php');
             
         </div>
 
+ main
         
         <div class="recent-transactions">
             <h2>Recent Transactions</h2>
@@ -65,11 +66,6 @@ include ('database/db-conn.php');
                 <?php endwhile; ?>
             </table>
             <a href="add_transaction.html" class="btn">Add Transaction</a>
-  
-    </form>
-
-
-
-
+main
 </body>
 </html>
