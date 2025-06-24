@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Register - Finance Tracker</title>
-    <link rel="stylesheet" href="finance-tracker/assets/register.css">
+    <link rel="stylesheet" href="./assets/register.css">
 </head>
 <body>
     <div class="login-container">
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="finance-tracker/login.php">Login</a></p>
+        <p>Already have an account? <a href="login.php">Login</a></p>
     </div>
 </body>
 </html>
