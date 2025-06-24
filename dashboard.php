@@ -33,7 +33,6 @@ include ('database/db-conn.php');
             
         </div>
 
- main
         
         <div class="recent-transactions">
             <h2>Recent Transactions</h2>
