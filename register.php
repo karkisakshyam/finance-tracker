@@ -6,8 +6,6 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
 
-    $password = trim($_POST['password'] ?? '');
-
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
     
@@ -43,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Register - Finance Tracker</title>
-    <link rel="stylesheet" href="finance-tracker/assets/style.css">
+    <link rel="stylesheet" href="finance-tracker/assets/register.css">
 </head>
 <body>
     <div class="login-container">
