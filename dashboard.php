@@ -48,7 +48,7 @@ include ('database/db-conn.php');
                 $stmt = $conn->prepare("SELECT date, description, amount, category 
                                       FROM transactions 
                                       WHERE user_id = ? 
-                                      ORDER BY date DESC LIMIT 5");
+                                      ORDER BY date DESC");
                 $stmt->bind_param("i", $_SESSION['user_id']);
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -77,6 +77,9 @@ include ('database/db-conn.php');
 
 
 </body>
+<footer class="footer">
+    <p>&copy, All Copy Rights Reserved.  Created By Dipen, Sakshyam, Utsav</p>
+</footer>
 </html>
 
 
