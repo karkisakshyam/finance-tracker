@@ -32,6 +32,8 @@ include ('database/db-conn.php');
             </div>
             
         </div>
+
+ main
         
         <div class="recent-transactions">
             <h2>Recent Transactions</h2>
@@ -64,12 +66,17 @@ include ('database/db-conn.php');
                 <?php endwhile; ?>
             </table>
             <a href="add_transaction.html" class="btn">Add Transaction</a>
+ 
         </div>
+
+
     </div>
-    
-    <!-- <div class="chart-container">
-        <h2>Financial Overview</h2>
-        <img src="generate_charts.php?type=monthly" alt="Monthly Financial Chart">
-    </div> -->
+
+
+
+
+
 </body>
 </html>
+
+

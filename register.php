@@ -5,8 +5,13 @@ $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
+
     $password = trim($_POST['password'] ?? '');
+
     $email = trim($_POST['email'] ?? '');
+    $password = trim($_POST['password'] ?? '');
+    
+
 
     if ($username && $password && $email) {
         $check = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
@@ -18,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $username, $hashed_password, $email);
+
+            $stmt->bind_param("sss", $username,$email , $hashed_password);
+
             if ($stmt->execute()) {
                 header("Location: login.php");
                 exit();
