@@ -10,13 +10,42 @@ body {
 
 }
 
-header {
+.dashboard-header {
     background-color: #28a745;
     color: white;
-    padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center;
+    justify-items: center;
+    justify-content: center; */
+    padding-top:  20px;
 }
+ .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border-radius: 100%;
+            gap: 500px;
+            
+            
 
+
+            
+            
+        }
+.heading {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 400px;
+    
+    width: 450px;
+    padding-bottom: 5px;
+    
+    justify-content: center;
+    justify-items: center;
+}
 
 .dashboard {
     padding: 30px;

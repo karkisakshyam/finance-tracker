@@ -14,10 +14,11 @@ include ('database/db-conn.php');
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome, <?php echo $_SESSION['username']; ?></h1>
-       
-    </header>
+    <div class="dashboard-header">
+        <img src="logoimg.png" alt="Finance Tracker Logo" class="logo">
+        <h1 class="heading">Welcome, <?php echo $_SESSION['username']; ?></h1>
+        
+    </div>
     
     <div class="dashboard">
         <div class="summary-cards">
