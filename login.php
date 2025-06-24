@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
+        
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
@@ -35,16 +36,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['is_loggedin'] = true;
     header("Location: dashboard.php");
 } else {
-    header("Location: login.php?error=email or password incorrect");
+    header("Location: login.php");{
+    echo "Invalid email or password";
+    }
+    
+    exit();
 }
-    //         header("Location: dashboard.php");
+    //        header("Location: dashboard.php");
     //         exit();
-    //     } else {
-    //         $error = "Invalid email or password";
-        }
+    //      } else {
+    //          $error = "Invalid email or password";
+    //     }
     // } else {
     //     $error = "Invalid email or password";
-    // }
+    //  }
+  
+
+}
 }
 
 ?>
