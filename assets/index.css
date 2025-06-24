@@ -1,18 +1,13 @@
 
-:root {
-            --primary: #46e54e; 
-            --income: #10b981;   
-            --expense: #ef4444;  
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --border: #e2e8f0;
-        }
-        body {
+body {
+  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f7fa;
-    color:#333;
+
+    color: #333;
+
 }
 
 header {
@@ -38,28 +33,24 @@ header {
 }
 
 .card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
 }
 
 .card h3 {
-  color: var(--gray);
-  font-size: 1rem;
-  font-weight: 500;
+    margin-bottom: 10px;
+    color: lightgreen;
 }
 
 .card p {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--dark);
+    font-size: 24px;
+    font-weight: bold;
+
 }
 
 .recent-transactions {
@@ -111,20 +102,10 @@ table th {
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-    justify-content: space-between;
+
 }
 
- button:hover {
-            background: #4338ca;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
-        }
+.btn:hover {
+    background-color: #1e4e5e;
 
-
-.chart-container {
-    background: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }

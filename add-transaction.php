@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
     if (!is_numeric($amount)) {
-        header("Location: add-transaction.html?error=invalid_amount");
+        header("Location: add_transaction.html?error=invalid_amount");
         exit();
     }
     $amount = $type == 'expense' ? -abs($amount) : abs($amount);

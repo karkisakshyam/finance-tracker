@@ -1,5 +1,5 @@
 <?php
-// ob_start();
+
 session_start();
 include 'database/db-conn.php';
 
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //     $error = "Invalid email or password";
     // }
 }
-// ob_end_flush();
+
 ?>
 
 <!DOCTYPE html>
