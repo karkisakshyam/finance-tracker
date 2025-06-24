@@ -5,26 +5,30 @@ include 'database/db-conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
+
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    var_dump($email, $password);
+   
 
     $sql = "SELECT id, username, password FROM users WHERE email = ?";
+
+    $email = isset($_POST['email']) ? $conn->real_escape_string($_POST['email']) : '';
+    $password = $_POST['password'] ?? '';
+
+    $sql = "SELECT * FROM users WHERE email = ?";
+
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
-
-    
 
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-
-            //  $_SESSION['email'] = $user['email'];
 
 
              session_start();
@@ -59,9 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <img src="logoimg.png" class="logo" alt="">
         <h2>Login To MyFinance</h2>
         <form action="login.php" method="post">
-            <div class="form-group">
+            <div class="form-group"
             <label for="email">email</label>
             <input type="text" name="email" id="email" required><br>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required><br>
+
             </div>
             <div class="form-group">
             <label for="password">Password </label>
