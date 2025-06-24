@@ -134,7 +134,6 @@
             margin-top: 5px;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 480px) {
             .form-container {
                 padding: 30px 20px;
